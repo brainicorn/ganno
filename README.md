@@ -194,7 +194,7 @@ fmt.Printf("%s is fluffy? %t\n", mypet.Name(), mypet.Hasfur())
 // Output: fluffy buns is fluffy? true
 ```
 
-**API Documentation:** [https://godoc.org/github.com/brainicorn/ganno](https://godoc.org/bitbucket.org/hipchat/ganno)
+**API Documentation:** [https://godoc.org/github.com/brainicorn/ganno](https://godoc.org/github.com/brainicorn/ganno)
 
 [Issue Tracker](https://github.com/brainicorn/ganno/issues)
 
