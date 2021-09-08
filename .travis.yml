@@ -5,8 +5,7 @@ go:
   - tip
 
 install:
-  - go get github.com/Masterminds/glide
-  - glide --no-color up
+  - go mod download
   - go get -u github.com/alecthomas/gometalinter
   - gometalinter --install
 

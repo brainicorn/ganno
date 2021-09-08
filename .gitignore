@@ -17,3 +17,4 @@ vendor/
 profile.out
 coverage.txt
 ganno
+.vscode
