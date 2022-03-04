@@ -1,9 +1,10 @@
-[![Build Status](https://travis-ci.org/brainicorn/ganno.svg?branch=master)](https://travis-ci.org/brainicorn/ganno)
-[![codecov](https://codecov.io/gh/brainicorn/ganno/branch/master/graph/badge.svg)](https://codecov.io/gh/brainicorn/ganno)
+[![Build Status](https://travis-ci.org/brainicorn/ganno.svg?branch=main)](https://travis-ci.org/brainicorn/ganno)
+[![codecov](https://codecov.io/gh/brainicorn/ganno/branch/main/graph/badge.svg)](https://codecov.io/gh/brainicorn/ganno)
 [![Go Report Card](https://goreportcard.com/badge/github.com/brainicorn/ganno)](https://goreportcard.com/report/github.com/brainicorn/ganno)
 [![GoDoc](https://godoc.org/github.com/brainicorn/ganno?status.svg)](https://godoc.org/github.com/brainicorn/ganno)
 
-# ganno #
+# ganno
+
 Package ganno implements java-style annotations in Go.
 
 If your unfamiliar with java's annotation system, you can look at their [annotations basics guide](https://docs.oracle.com/javase/tutorial/java/annotations/basics.html)
@@ -15,12 +16,14 @@ annotation parser.
 
 [Issue Tracker](https://github.com/brainicorn/ganno/issues)
 
-### Java-Style Annotations ###
+### Java-Style Annotations
+
 Java-Style anotations are written using the following format:
 
 `@<ident>(<ident>=<valueOrValues>,...)`
 
 examples:
+
 ```go
 
 @simpleAnnotation()
@@ -34,7 +37,9 @@ examples:
 @multipleVals(mypets=["dog", "kitty cat"])
 
 ```
+
 Annotations may also be split across multiple lines even within single-line comments:
+
 ```go
 
 // @stuffILike(
@@ -47,34 +52,39 @@ Annotations may also be split across multiple lines even within single-line comm
 // )
 
 ```
-## Features ##
-  * Highly tested
-  * Ready to use out of the box
-  * Anotations can be parsed from:
-    * single line text
-	* multi-line text
-	* multi-line comment blocks
-	* single-line comments
-	* multiple single-line comment blocks
-  * Runtime pluggable
-    * Supports custom Annotation types
-	  * Custom annotations can provide strongly-typed sttribute accessors
-	* Custom annotation factories can be registered at runtime
-	* Factories can enforce strict validation of attributes
-	* Factories and custom Annotations can be re-used/distributed as libraries
-  * Extensible
-    * Provides interfaces for implementing custom AnnotationParsers and or Annotations collections
 
-## Basic Use ##
+## Features
+
+- Highly tested
+- Ready to use out of the box
+- Anotations can be parsed from:
+  - single line text
+  - multi-line text
+  - multi-line comment blocks
+  - single-line comments
+  - multiple single-line comment blocks
+- Runtime pluggable
+  - Supports custom Annotation types
+    - Custom annotations can provide strongly-typed sttribute accessors
+  - Custom annotation factories can be registered at runtime
+  - Factories can enforce strict validation of attributes
+  - Factories and custom Annotations can be re-used/distributed as libraries
+- Extensible
+  - Provides interfaces for implementing custom AnnotationParsers and or Annotations collections
+
+## Basic Use
+
 Out of the box, ganno is ready to use, but it's good to understand a couple of things:
-  * The parser returns an Annotations object as well as any validation errors while parsing
-    * Validation errors are returned in a slice and the annotation that errored is discarded
-	* The Annotations object provides accessors for All() annotations as well as ByName(name)
-  * The default annotation object returned provides an Attributes() method which returns a
-`map[string][]string` where the map key is the attribute name and the value is a slice of strings. This
-is to support multi-value atrributes and single-value attributes are a slice of 1.
+
+- The parser returns an Annotations object as well as any validation errors while parsing
+  - Validation errors are returned in a slice and the annotation that errored is discarded
+  - The Annotations object provides accessors for All() annotations as well as ByName(name)
+- The default annotation object returned provides an Attributes() method which returns a
+  `map[string][]string` where the map key is the attribute name and the value is a slice of strings. This
+  is to support multi-value atrributes and single-value attributes are a slice of 1.
 
 Here's a simple example of parsing an @pets annotation:
+
 ```go
 input := `my @pet(name="fluffy buns", hasFur=true) is soooo cute!`
 
@@ -108,15 +118,18 @@ fmt.Printf("%s is fluffy? %t\n", name, hasFur)
 // Output: fluffy buns is fluffy? true
 
 ```
+
 While the above example certainly works, there's a lot of validation that's going on that's not very
 reusable and is error prone. Let's see how we can use a plugin to solve this...
 
-## Advanced Use ##
+## Advanced Use
+
 By creating a custom annotation type and a factory for it, we can encapsulate all of the above validation
 logic and provide a cleaner interface when dealing with @pet annotations...
 
 First off, let's create the "plugin" bits that could be put into their own package and/or library if
 desired....
+
 ```go
 // PetAnno is a custom Annotation type for @pet() annotations
 type PetAnno struct {
@@ -198,19 +211,19 @@ fmt.Printf("%s is fluffy? %t\n", mypet.Name(), mypet.Hasfur())
 
 [Issue Tracker](https://github.com/brainicorn/ganno/issues)
 
-## Contributors ##
+## Contributors
 
 Pull requests, issues and comments welcome. For pull requests:
 
-* Add tests for new features and bug fixes
-* Follow the existing style
-* Separate unrelated changes into multiple pull requests
+- Add tests for new features and bug fixes
+- Follow the existing style
+- Separate unrelated changes into multiple pull requests
 
 See the existing issues for things to start contributing.
 
 For bigger changes, make sure you start a discussion first by creating
 an issue and explaining the intended change.
 
-## License ##
+## License
 
 Apache 2.0 licensed, see [LICENSE.txt](LICENSE.txt) file.
