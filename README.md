@@ -1,4 +1,4 @@
-![Build Status](https://github.com/brainicorn/ganno/actions/workflows/build.yaml/badge.svg)
+[![Build Status](https://github.com/brainicorn/ganno/actions/workflows/build.yaml/badge.svg)](https://github.com/brainicorn/ganno/actions)
 [![codecov](https://codecov.io/gh/brainicorn/ganno/branch/main/graph/badge.svg)](https://codecov.io/gh/brainicorn/ganno)
 [![Go Report Card](https://goreportcard.com/badge/github.com/brainicorn/ganno)](https://goreportcard.com/report/github.com/brainicorn/ganno)
 [![GoDoc](https://godoc.org/github.com/brainicorn/ganno?status.svg)](https://godoc.org/github.com/brainicorn/ganno)
