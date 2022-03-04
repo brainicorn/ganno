@@ -4,16 +4,16 @@ import "github.com/brainicorn/goblex"
 
 const (
 	beginLineComment      string = "//"
-	beginMultiLineComment        = "/*"
-	endMultiLineComment          = "*/"
-	leftBracket                  = "["
-	rightBracket                 = "]"
-	atSymbol                     = "@"
-	openParen                    = "("
-	closeParen                   = ")"
-	equalSign                    = "="
-	comma                        = ","
-	doubleQuote                  = "\""
+	beginMultiLineComment string = "/*"
+	endMultiLineComment   string = "*/"
+	leftBracket           string = "["
+	rightBracket          string = "]"
+	atSymbol              string = "@"
+	openParen             string = "("
+	closeParen            string = ")"
+	equalSign             string = "="
+	comma                 string = ","
+	doubleQuote           string = "\""
 )
 
 const (

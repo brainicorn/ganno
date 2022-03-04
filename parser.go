@@ -71,7 +71,7 @@ func (p *defaultAnnotationParser) Parse(input string) (Annotations, []error) {
 
 	l := goblex.NewLexer("someFile", input, LexBegin)
 	l.AddIgnoreTokens(comments...)
-	//l.Debug = true
+	// l.Debug = true
 	for {
 
 		if l.IsEOF() {

@@ -1,0 +1,32 @@
+run:
+  tests: false
+  timeout: 5m
+
+output:
+  format: tab
+
+linters:
+  enable:
+    - gofmt
+    - ineffassign
+    - govet
+    - typecheck
+    - structcheck
+    - gosimple
+    - asciicheck
+    - bodyclose
+    - nilerr
+    - gocritic
+    - staticcheck
+    - unparam
+    - deadcode
+    - errcheck
+    - unused
+    - varcheck
+  disable-all: true
+
+linters-settings:
+  gocritic:
+    disabled-checks:
+      - ifElseChain
+      - exitAfterDefer
